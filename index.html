@@ -1,39 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Métricas Redes Sociales</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-      body { background-color: #f0f8ff; }
-      
-       
-        .container { margin-top: 20px; }
-        .chart-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .chart-box { width: 100%; max-width: 400px; }
+  <!DOCTYPE html>
+  <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Métricas Comunicación 2025</title>
+      <link rel="icon" href="./logo.png" type="image/x-icon"> <!-- Favicon -->
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+      <!-- Font Awesome (íconos) -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+      <!-- Chart.js -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+      <!-- Estilos personalizados -->
+      <style>
+        body {
+          background-color: #f0f8ff;
+          font-size: 1rem; /* tamaño base consistente */
+        }
+    
+        .container {
+          margin-top: 20px;
+        }
+    
+        .chart-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+        }
+    
+        .chart-box {
+          width: 100%;
+          max-width: 400px;
+        }
+    
         .btn-mes {
-      margin: 5px;
-      border-radius: 20px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    .btn-mes:hover {
-      background-color: #01579b;
-      color: white;
-    }
-    #visorPDF {
-      border: 2px solid #90caf9;
-      border-radius: 10px;
-      width: 100%;
-      height: 600px;
-      margin-top: 20px;
-    }
-    </style>
-</head>
+          margin: 5px;
+          border-radius: 20px;
+          font-weight: bold;
+          transition: all 0.3s ease;
+        }
+    
+        .btn-mes:hover {
+          background-color: #01579b;
+          color: white;
+        }
+    
+        #visorPDF {
+          border: 2px solid #90caf9;
+          border-radius: 10px;
+          width: 100%;
+          height: 600px;
+          margin-top: 20px;
+        }
+      </style>
+    </head>
 <body> <!-- Navbar mejorada -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top shadow">
       <div class="container-fluid">
         <!-- Logo y título -->
         <a class="navbar-brand d-flex align-items-center" href="#">
@@ -129,7 +157,7 @@
   </section>
     <!-- Evento Facebook -->
 <div class="container text-center mt-5">
-  <h5 class="text-info fw-bold">📌 Evento Destacado del Mes - Facebook</h5>
+  <h3 class="text-info fw-bold">📌 Evento Destacado del Mes - Facebook</h3>
   <img id="eventoFacebook" src="" alt="Evento Facebook"
        class="img-fluid rounded shadow-lg mt-3 d-block mx-auto"
        style="max-height: 500px; cursor: pointer; display: none;"
@@ -164,7 +192,7 @@
     </div>
   </div>
   <div class="container text-center mt-5">
-    <h5 class="text-danger fw-bold">📌 Evento Destacado del Mes - Instagram</h5>
+    <h3 class="text-danger fw-bold">📌 Evento Destacado del Mes - Instagram</h3>
     <img id="eventoInstagram" src="" alt="Evento Instagram"
          class="img-fluid rounded shadow-lg mt-3 d-block mx-auto"
          style="max-height: 500px; cursor: pointer; display: none;"
@@ -282,30 +310,30 @@ function cargarPDF(ruta) {
 
   const eventosFacebook = {
     enero: {
-      imagen: 'imagenes/maipumunicipio/facebookenero.png',
+      imagen: './imagenes/maipumunicipio/facebookenero.png',
       descripcion: '🍇 Vendimia Maipucina 2025 - Gran celebración popular'
     },
     febrero: {
-      imagen: 'imagenes/maipumunicipio/facebookfebrero.png',
+      imagen: './imagenes/maipumunicipio/facebookfebrero.png',
       descripcion: '🏖️ Festival de Verano en la Plaza Departamental'
     },
     marzo: {
-      imagen: 'imagenes/maipumunicipio/facebookmarzo.png',
+      imagen: './imagenes/maipumunicipio/facebookmarzo.png',
       descripcion: '🏖️ Festival de Verano en la Plaza Departamental'
     }
   };
 
   const eventosInstagram = {
     enero: {
-      imagen: 'imagenes/maipumunicipio/instagramenero.png',
+      imagen: './imagenes/maipumunicipio/instagramenero.png',
       descripcion: '📸 Álbum visual del evento Vendimia Maipucina'
     },
     febrero: {
-      imagen: 'imagenes/maipumunicipio/intagramfebrero.png',
+      imagen: './imagenes/maipumunicipio/intagramfebrero.png',
       descripcion: '🎶 Post destacando artistas del Festival de Verano'
     },
     marzo: {
-      imagen: 'imagenes/maipumunicipio/facebookmarzo.png',
+      imagen: './imagenes/maipumunicipio/facebookmarzo.png',
       descripcion: '🏖️ Festival de Verano en la Plaza Departamental'
     }
   };

@@ -30,6 +30,10 @@
       margin-top: 20px;
       
     }
+    .actual{
+      background-color: #01579b;
+      color: white;
+    }
     html {
   font-size: 14px; /* Esto hace que todo se vea más proporcionado */
 }
@@ -40,7 +44,7 @@
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="./logo.png" alt="Logo" width="50" class="me-2" />
-        <span class="fw-bold text-primary">Métricas Redes</span>
+        <span class="fw-bold text-primary">Dirección de Comunicación</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -64,7 +68,7 @@
   <section id="reclamos" class="py-3" style="background-color: #e3f2fd;">
     <div class="container">
       <h1 class="text-center mb-4" style="color: #0277bd;">📢 Análisis de Reclamos</h1>
-      <p class="text-center text-muted">Visualizá los reclamos recibidos desde redes sociales por mes, zona y área.</p>
+      <p class="text-center text-muted">Visualizá los reclamos recibidos en redes sociales de las Cunetas de Matías Stevanato y Maipú Municipio,filtados por mes, zona, área, cuentas, distritos y detalles de los mismos.</p>
 
       <!-- Sección de botones para PDF -->
       <div class="text-center my-4">
@@ -74,7 +78,7 @@
 
           <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('enero.pdf')">Enero</button>
           <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('febrero.pdf')">Febrero</button>
-          <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('marzo.pdf')">Marzo</button>
+          <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('marzo.pdf')">Marzo</button>
           <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('abril.pdf')">Abril</button>
           <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('mayo.pdf')">Mayo</button>
           <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('junio.pdf')">Junio</button>
@@ -133,7 +137,7 @@
 
 
   window.onload = function () {
-    cargarPDF('enero.pdf');
+    cargarPDF('marzo.pdf');
   };
 
 

@@ -37,7 +37,10 @@
         width: 100%;
         max-width: 400px;
       }
-  
+      .actual{
+      background-color: #01579b;
+      color: white;
+    }
       .btn-mes {
         margin: 5px;
         border-radius: 20px;
@@ -70,7 +73,7 @@
         <!-- Logo y título -->
         <a class="navbar-brand d-flex align-items-center" href="#">
           <img src="./logo.png" alt="Logo" width="50" class="me-2" />
-          <span class="fw-bold text-primary">Métricas Redes</span>
+          <span class="fw-bold text-primary">Dirección de Comunicación</span>
         </a>
     
         <!-- Botón hamburguesa móvil -->
@@ -100,7 +103,7 @@
         <h1 class="text-center text-primary mb-4">📊 Métricas de Redes Sociales</h1>
   
   <p class="text-center text-secondary px-3">
-    Conocé el rendimiento mensual las redes sociales de Maipú Municipio y Matías´Stevanato. Visualizá el alcance y comportamiento de tus publicaciones en Facebook e Instagram mes a mes. Esta herramienta nos ayudará a tomar mejores decisiones estratégicas.
+    Conocé el rendimiento mensual las redes sociales de Matías´Stevanato. Visualizá el alcance y comportamiento de tus publicaciones en Facebook e Instagram mes a mes. Esta herramienta nos ayudará a tomar mejores decisiones estratégicas.
   </p>
 
   <div class="d-flex flex-column align-items-center mt-4">
@@ -263,9 +266,9 @@
       <div class="d-flex flex-wrap justify-content-center">
 
 
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipu.pdf')">Enero</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipu.pdf')">Febrero</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipu.pdf')">Marzo</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('matiasmarzo.pdf')">Enero</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('matiasmarzo.pdf')">Febrero</button>
+        <button class="btn btn-outline-primary btn-mes  actual" onclick="cargarPDF('matiasmarzo.pdf')">Marzo</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('abril.pdf')">Abril</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('mayo.pdf')">Mayo</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('junio.pdf')">Junio</button>
@@ -293,19 +296,24 @@ function cargarPDF(ruta) {
 
 
   window.onload = function () {
-    cargarPDF('maipu.pdf');
+    cargarPDF('matiasmarzo.pdf');
   };
 
   const data = {
-    enero: {
-      facebook: { alcances: 12000, visualizaciones: 15000, seguidoresTotales: 8000, seguidoresMensuales: 500, visitas: 2000, mensajes: 100 },
-      instagram: { alcances: 14000, visualizaciones: 16000, seguidoresTotales: 8200, seguidoresMensuales: 600, visitas: 2200, mensajes: 120 }
-    },
-    febrero: {
-      facebook: { alcances: 3000, visualizaciones: 15500, seguidoresTotales: 8100, seguidoresMensuales: 550, visitas: 2100, mensajes: 110 },
-      instagram: { alcances: 500, visualizaciones: 16500, seguidoresTotales: 8300, seguidoresMensuales: 650, visitas: 2300, mensajes: 130 }
-    }
-  };
+  enero: {
+    facebook: { alcances: 28200, visualizaciones: 105000, seguidoresTotales: 25607, seguidoresMensuales: 191, visitas: 4500, mensajes: 76 },
+    instagram: { alcances: 24600, visualizaciones: 113800, seguidoresTotales: 11880, seguidoresMensuales: 298, visitas: 1500, mensajes: 172 }
+  },
+  febrero: {
+    facebook: { alcances: 25200, visualizaciones: 82600, seguidoresTotales: 25660, seguidoresMensuales: 53, visitas: 3300, mensajes: 40 },
+    instagram: { alcances: 28100, visualizaciones: 112700, seguidoresTotales: 12149, seguidoresMensuales: 269, visitas: 1800, mensajes: 198 }
+  },
+  marzo: {
+    facebook: { alcances: 29600, visualizaciones: 78600, seguidoresTotales: 25700, seguidoresMensuales: 40, visitas: 2900, mensajes: 62 },
+    instagram: { alcances: 20400, visualizaciones: 82500, seguidoresTotales: 12300, seguidoresMensuales: 151, visitas: 1100, mensajes: 148 }
+  }
+};
+
 
   const eventosFacebook = {
     enero: {

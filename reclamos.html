@@ -18,6 +18,10 @@
       font-weight: bold;
       transition: all 0.3s ease;
     }
+    body {
+      background-color: #f0f8ff;
+      font-size: 1rem;
+    }
     .btn-mes:hover {
       background-color: #01579b;
       color: white;
@@ -65,7 +69,7 @@
     </div>
   </nav>
 
-  <section id="reclamos" class="py-3" style="background-color: #e3f2fd;">
+  <section id="reclamos" class="py-3">
     <div class="container">
       <h1 class="text-center mb-4" style="color: #0277bd;">📢 Análisis de Reclamos</h1>
       <p class="text-center text-muted">Visualizá los reclamos recibidos en redes sociales de las Cunetas de Matías Stevanato y Maipú Municipio,filtados por mes, zona, área, cuentas, distritos y detalles de los mismos.</p>
@@ -95,42 +99,44 @@
       </div>
     </div>
   </section>
-  <section id="comparativo" class="py-5" style="background-color: #f8f9fa;">
-    <div class="container">
-      <h2 class="text-center mb-4 text-primary">📈 Comparativo</h2>
-      <p class="text-center text-muted">Gráfico comparativo anual de los reclamos recibidos según categoría.</p>
+
   
-      <div class="chart-container d-flex justify-content-center mb-4">
-        <canvas id="doughnutChart" style="max-width: 500px;"></canvas>
+  <section id="comparativo" class="py-3" >
+    <div class="container">
+      <h1 class="text-center mb-4 text-primary">📈 Comparativo</h1>
+      <p class="text-center text-muted">Gráfico comparativo anual de los reclamos recibidos.</p>
+  
+      <!-- Gráfico Lineal -->
+      <div class="chart-container mb-5 py-3" style="position: relative; height: 500px;background-color: #ffffff ">
+        <canvas id="lineChart"></canvas>
       </div>
   
+      <!-- Tabla de Reclamos -->
       <div class="table-responsive">
-        <table class="table table-bordered table-striped text-center align-middle">
-          <thead class="table-primary">
-            <tr>
-              <th>Reclamos</th>
+        <table class="table table-bordered text-center align-middle">
+          <thead class="table-primary text-dark">
+            <tr> <th>Reclamos</th>
               <th>Enero</th><th>Febrero</th><th>Marzo</th><th>Abril</th>
               <th>Mayo</th><th>Junio</th><th>Julio</th><th>Agosto</th>
               <th>Septiembre</th><th>Octubre</th><th>Noviembre</th><th>Diciembre</th>
             </tr>
           </thead>
-          <tbody>
-            <tr><td>Falta de Agua</td><td>105</td><td>15</td><td>7</td><td>1</td><td>6</td><td>7</td><td>4</td><td>6</td><td>11</td><td>5</td><td>45</td><td>45</td></tr>
-            <tr><td>Pérdidas de Agua</td><td>12</td><td>19</td><td>11</td><td>18</td><td>8</td><td>12</td><td>6</td><td>4</td><td>8</td><td>3</td><td>6</td><td>45</td></tr>
-            <tr><td>Limpieza</td><td>17</td><td>5</td><td>3</td><td>2</td><td>12</td><td>12</td><td>11</td><td>3</td><td>1</td><td>2</td><td>4</td><td>45</td></tr>
-            <tr><td>Limpieza Acequias</td><td>5</td><td>28</td><td>9</td><td>9</td><td>11</td><td>1</td><td>2</td><td>4</td><td>4</td><td>4</td><td>7</td><td>45</td></tr>
-            <tr><td>Luminarias</td><td>19</td><td>17</td><td>12</td><td>11</td><td>12</td><td>19</td><td>21</td><td>19</td><td>10</td><td>7</td><td>11</td><td>45</td></tr>
-            <tr><td>Residuos</td><td>3</td><td>1</td><td>4</td><td>11</td><td>6</td><td>2</td><td>6</td><td>2</td><td>5</td><td>0</td><td>2</td><td>45</td></tr>
-            <tr><td>Pozos en la calle</td><td>1</td><td>2</td><td>3</td><td>8</td><td>3</td><td>4</td><td>5</td><td>1</td><td>14</td><td>5</td><td>7</td><td>45</td></tr>
-            <tr><td>Destape de Cloaca</td><td>8</td><td>3</td><td>5</td><td>0</td><td>10</td><td>8</td><td>16</td><td>3</td><td>7</td><td>5</td><td>9</td><td>45</td></tr>
+          <tbody class="text-dark fw-semibold">
+            <tr><td>Cantidad</td>
+              <td>113</td><td>86</td><td>38</td><td>0</td><td>0</td><td>0</td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
+<!-- Script del Gráfico -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script>
+    
    function cargarPDF(ruta) {
   document.getElementById('visorPDF').src = './pdf/' + ruta;
 }
@@ -140,72 +146,68 @@
     cargarPDF('marzo.pdf');
   };
 
-
-  
-    const ctx = document.getElementById('doughnutChart').getContext('2d');
-const data = {
-  labels: [
-    'Falta de Agua',
-    'Pérdidas de Agua',
-    'Limpieza',
-    'Limpieza Acequias',
-    'Luminarias',
-    'Residuos',
-    'Pozos en la calle',
-    'Destape de Cloaca'
-  ],
-  datasets: [{
-    label: 'Reclamos Anuales',
-    data: [
-      212, // Suma total para Falta de Agua (ejemplo)
-      107, // Suma total para Pérdidas de Agua
-      84,  // Limpieza
-      90,  // Limpieza Acequias
-      158, // Luminarias
-      44,  // Residuos
-      63,  // Pozos en la calle
-      74   // Destape de Cloaca
-    ],
-    backgroundColor: [
-      '#42a5f5',
-      '#66bb6a',
-      '#ffa726',
-      '#ab47bc',
-      '#ef5350',
-      '#29b6f6',
-      '#ff7043',
-      '#8d6e63'
-    ],
-    borderColor: '#ffffff',
-    borderWidth: 2
-  }]
-};
-
-const config = {
-  type: 'doughnut',
-  data: data,
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: '50%', // Ajusta el tamaño del corte para el efecto doughnut
-    plugins: {
-      legend: {
-        position: 'bottom',
-        labels: {
-          padding: 20,
-          boxWidth: 15
+  const ctx = document.getElementById('lineChart').getContext('2d');
+  const lineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+      datasets: [{
+        label: 'Cantidad de Reclamos',
+        data: [113, 86, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        fill: true,
+        backgroundColor: 'rgba(13, 110, 253, 0.1)', // celeste suave de fondo
+        borderColor: '#0d6efd', // celeste fuerte
+        pointBackgroundColor: '#0d6efd',
+        pointBorderColor: '#fff',
+        pointRadius: 6,
+        pointHoverRadius: 8,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: {
+            color: '#343a40',
+            font: {
+              size: 14,
+              weight: 'bold'
+            }
+          }
         }
       },
-      title: {
-        display: true,
-        text: 'Total de Reclamos por Categoría - Año',
-        font: { size: 18 }
+      scales: {
+        x: {
+          ticks: {
+            color: '#343a40',
+            font: {
+              size: 13,
+              weight: 'bold'
+            }
+          },
+          grid: {
+            display: false
+          }
+        },
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: '#343a40',
+            font: {
+              size: 13,
+              weight: 'bold'
+            },
+            stepSize: 20
+          },
+          grid: {
+            color: '#dee2e6'
+          }
+        }
       }
     }
-  }
-};
-
-new Chart(ctx, config);
+  });
+  
 
   </script>
 

@@ -312,34 +312,35 @@ function cargarPDF(ruta) {
   };
 
   const eventosFacebook = {
-    enero: {
-      imagen:'./imagenes/fenero.png',
-      descripcion: '🍇 Vendimia Maipucina 2025 - Gran celebración popular'
-    },
-    febrero: {
-      imagen: '',
-      descripcion: '🏖️ Festival de Verano en la Plaza Departamental'
-    },
-    marzo: {
-      imagen: '',
-      descripcion: '🏖️ Festival de Verano en la Plaza Departamental'
-    }
-  };
+  enero: {
+    imagen: './imagenes/fenero.PNG', // ¡Confirmar que esté en minúsculas el nombre!
+    descripcion: '🍇 Vendimia Maipucina 2025 - Gran celebración popular'
+  },
+  febrero: {
+    imagen: '', // Podés agregar una imagen aquí también
+    descripcion: '🏖️ Festival de Verano en la Plaza Departamental'
+  },
+  marzo: {
+    imagen: '',
+    descripcion: '🏖️ Festival de Verano en la Plaza Departamental'
+  }
+};
 
-  const eventosInstagram = {
-    enero: {
-      imagen:'./imagenes/ienero.png',
-      descripcion: '📸 Álbum visual del evento Vendimia Maipucina'
-    },
-    febrero: {
-      imagen: '',
-      descripcion: '🎶 Post destacando artistas del Festival de Verano'
-    },
-    marzo: {
-      imagen: '',
-      descripcion: '🏖️ Festival de Verano en la Plaza Departamental'
-    }
-  };
+const eventosInstagram = {
+  enero: {
+    imagen: './imagenes/ienero.PNG', // Confirmar que también exista en minúsculas
+    descripcion: '📸 Álbum visual del evento Vendimia Maipucina'
+  },
+  febrero: {
+    imagen: '',
+    descripcion: '🎶 Post destacando artistas del Festival de Verano'
+  },
+  marzo: {
+    imagen: '',
+    descripcion: '🏖️ Festival de Verano en la Plaza Departamental'
+  }
+};
+
 
   function updateCharts(mes) {
     const fb = data[mes].facebook;

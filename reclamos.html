@@ -44,6 +44,7 @@
   </style>
 </head>
 <body>
+  
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm ">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="#">
@@ -103,11 +104,11 @@
   
   <section id="comparativo" class="py-3" >
     <div class="container">
-      <h1 class="text-center mb-4 text-primary">📈 Comparativo</h1>
+      <h1 class="text-center mb-4 text-primary">📈 Cantidad de Reclamos Recibidos en Redes</h1>
       <p class="text-center text-muted">Gráfico comparativo anual de los reclamos recibidos.</p>
   
       <!-- Gráfico Lineal -->
-      <div class="chart-container mb-5 py-3" style="position: relative; height: 500px;background-color: #ffffff ">
+      <div class="chart-container mb-5 py-3" style="position: relative; height: 450px;background-color: #ffffff ">
         <canvas id="lineChart"></canvas>
       </div>
   
@@ -131,6 +132,21 @@
       </div>
     </div>
   </section>
+  <section id="reclamos-frecuentes" class="py-3" style="">
+    <div class="container">
+      <h1 class="text-center text-primary mb-4">🔍 Reclamos Más Frecuentes</h1>
+      <p class="text-center text-muted px-2">
+        En esta sección se presentan los reclamos más reiterados que llegan a través de las redes sociales del Municipio y del Intendente. Se trata de una selección de los temas con mayor demanda por parte de los vecinos durante los primeros meses del año.
+      </p>
+  
+      <div class="text-center mt-4">
+        <a href="./nuevo.html" class="btn btn-outline-primary btn-lg fw-bold rounded-pill px-4 py-2 actual" >
+          📊 Ver análisis de enero a marzo
+        </a>
+      </div>
+    </div>
+  </section>
+  
 
 <!-- Script del Gráfico -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -159,9 +175,9 @@
         borderColor: '#0d6efd', // celeste fuerte
         pointBackgroundColor: '#0d6efd',
         pointBorderColor: '#fff',
-        pointRadius: 6,
+        pointRadius:6,
         pointHoverRadius: 8,
-        tension: 0.4
+        tension: 0.2
       }]
     },
     options: {
@@ -193,12 +209,13 @@
         y: {
           beginAtZero: true,
           ticks: {
+            
             color: '#343a40',
             font: {
               size: 13,
               weight: 'bold'
             },
-            stepSize: 20
+            stepSize: 15
           },
           grid: {
             color: '#dee2e6'

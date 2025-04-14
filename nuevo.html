@@ -2,220 +2,261 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Guía de Comercios</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a2e0e6bdae.js" crossorigin="anonymous"></script>
+  <title>Reclamos Enero-Marzo</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    .card:hover { cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-    .btn-category { margin: 5px; }
-    .destacado { border: 2px solid gold; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fafdff;
+      margin: 20px;
+      color: #003344;
+    }
+
+    .seccion-reclamos {
+      max-width: 990px;
+      margin: auto;
+      background: #e0f7fa;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .titulo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #004d66;
+      flex-wrap: wrap;
+    }
+
+    .titulo i {
+      font-size: 2rem;
+      color: #0077c2;
+    }
+
+    .titulo h2 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .tabla-reclamos {
+      margin-top: 30px;
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .tabla-reclamos th, .tabla-reclamos td {
+      padding: 12px;
+      border: 1px solid #b2ebf2;
+      text-align: center;
+    }
+
+    .tabla-reclamos th {
+      background-color: #b2ebf2;
+    }
+
+    .grafico {
+      margin-top: 40px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: auto !important;
+      background-color: white; /* fondo blanco del gráfico */
+      border-radius: 10px;
+    }
+
+    .destacado {
+      background-color: #fff6f6;
+      border-left: 8px solid #0077c2;
+      padding: 20px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .destacado i {
+      font-size: 3rem;
+      color: #0077c2;
+    }
+
+    .destacado-texto {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    @media (max-width: 600px) {
+      .titulo {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .destacado {
+        flex-direction: column;
+        text-align: center;
+      } 
+      .tabla-responsive {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.tabla-responsive table {
+  min-width: 600px;
+}
+
+    }
   </style>
 </head>
 <body>
-
-<!-- Header -->
-<header class="bg-primary text-white p-3">
-  <div class="container d-flex justify-content-between align-items-center flex-wrap">
-    <h1><i class="fas fa-store"></i> Guía de Comercios</h1>
-    <input id="searchInput" class="form-control w-25" type="text" placeholder="Buscar por rubro...">
+    
+   <!-- Enlace para volver -->
+   <div style="margin-bottom: 10px;">
+    <a href="reclamos.html" style="text-decoration: none; color: #0077c2; font-weight: bold; font-size: 1rem;">
+      ← Volver
+    </a>
   </div>
-</header>
 
-<!-- Carrusel -->
-<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="img1.jpg" class="d-block w-100" alt="...">
+  <div class="seccion-reclamos">
+    <div class="titulo">
+      <i class="fas fa-chart-line"></i>
+      <h2>Reclamos más frecuentes (Enero - Marzo)</h2>
     </div>
-    <div class="carousel-item">
-      <img src="img2.jpg" class="d-block w-100" alt="...">
+
+    <p>Durante los primeros tres meses del año, los reclamos más visibles por parte de los vecinos han sido: <strong>falta de agua</strong>, <strong>cloacas tapadas</strong>, <strong>fallas electromecánicas</strong> y <strong>limpieza de calles</strong>. El reclamo más grave y reiterado ha sido la falta de agua, generando preocupación en distintos barrios.</p>
+    <div class="destacado">
+      <i class="fas fa-tint"></i>
+      <div class="destacado-texto">
+        <h3>🔵 Reclamo Destacado: Falta de Agua</h3>
+        <p>El servicio de agua fue el principal motivo de reclamo durante el primer trimestre. Con más de 170 reclamos solo en marzo, esta problemática ha sido la más urgente para resolver en las zonas afectadas.</p>
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="img3.jpg" class="d-block w-100" alt="...">
+    <div class="tabla-responsive">
+      <table class="tabla-reclamos">
+        <thead>
+          <tr>
+            <th>Mes</th>
+            <th>Falta de Agua</th>
+            <th>Cloacas Tapadas</th>
+            <th>Electromecánica</th>
+            <th>Limpieza de Calles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Enero</td>
+            <td>120</td>
+            <td>85</td>
+            <td>65</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <td>Febrero</td>
+            <td>150</td>
+            <td>70</td>
+            <td>58</td>
+            <td>35</td>
+          </tr>
+          <tr>
+            <td>Marzo</td>
+            <td>170</td>
+            <td>95</td>
+            <td>45</td>
+            <td>50</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+    
+    
+    <div class="grafico">
+      <canvas id="graficoReclamos"></canvas>
+    </div>
+
+    
   </div>
-</div>
 
-<!-- Botones de Rubros -->
-<div class="container text-center my-4">
-  <button class="btn btn-outline-primary btn-category" onclick="filterCards('todos')">Todos</button>
-  <button class="btn btn-outline-primary btn-category" onclick="filterCards('comida')">Comida</button>
-  <button class="btn btn-outline-success btn-category" onclick="filterCards('ropa')">Ropa</button>
-  <button class="btn btn-outline-warning btn-category" onclick="filterCards('servicios')">Servicios</button>
-  <button class="btn btn-outline-info btn-category" onclick="filterCards('tecnologia')">Tecnología</button>
-  <button class="btn btn-outline-danger btn-category" onclick="filterCards('salud')">Salud</button>
-  <button class="btn btn-outline-secondary btn-category" onclick="filterCards('educacion')">Educación</button>
-  <button class="btn btn-outline-dark btn-category" onclick="filterCards('belleza')">Belleza</button>
-</div>
-
-<!-- 🔥 DESTACADOS -->
-<div class="container my-5">
-  <h3 class="text-center mb-4">📌 Comercios Destacados</h3>
-  <div class="row" id="destacadosContainer">
-    <!-- Ejemplo de comercio destacado -->
-    <div class="col-md-4 mb-4 card-item comida destacado">
-      <div class="card" onclick="showModal('La Casa de la Milanesa', 'Especialidad en milanesas gigantes. Delivery sin cargo.', ['mila1.jpg','mila2.jpg'])">
-        <img src="mila1.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">La Casa de la Milanesa</h5>
-          <p class="card-text">Comida casera</p>
-        </div>
-      </div>
-    </div>
-    <!-- Agregás más destacados acá si querés -->
-  </div>
-</div>
-
-<!-- Cards de Comercios -->
-<div class="container">
-  <div class="row" id="cardsContainer">
-    <!-- COMIDA -->
-    <div class="col-md-4 mb-4 card-item comida">
-      <div class="card" onclick="showModal('Empanadas Doña María', 'Empanadas caseras mendocinas', ['emp1.jpg','emp2.jpg'])">
-        <img src="emp1.jpg" class="card-img-top" alt="">
-        <div class="card-body"><h5 class="card-title">Empanadas Doña María</h5><p>Comida</p></div>
-      </div>
-    </div>
-    <!-- ROPA -->
-    <div class="col-md-4 mb-4 card-item ropa">
-      <div class="card" onclick="showModal('UrbanStyle', 'Ropa urbana juvenil', ['ropa1.jpg'])">
-        <img src="ropa1.jpg" class="card-img-top" alt="">
-        <div class="card-body"><h5 class="card-title">UrbanStyle</h5><p>Ropa</p></div>
-      </div>
-    </div>
-    <!-- SERVICIOS -->
-    <div class="col-md-4 mb-4 card-item servicios">
-      <div class="card" onclick="showModal('Reparaciones Express', 'Reparación de electrodomésticos', ['serv1.jpg'])">
-        <img src="serv1.jpg" class="card-img-top" alt="">
-        <div class="card-body"><h5 class="card-title">Reparaciones Express</h5><p>Servicios</p></div>
-      </div>
-    </div>
-    <!-- TECNOLOGÍA -->
-    <div class="col-md-4 mb-4 card-item tecnologia">
-      <div class="card" onclick="showModal('TechZone', 'Venta de accesorios y computadoras', ['tech1.jpg'])">
-        <img src="tech1.jpg" class="card-img-top" alt="">
-        <div class="card-body"><h5 class="card-title">TechZone</h5><p>Tecnología</p></div>
-      </div>
-    </div>
-    <!-- SALUD -->
-    <div class="col-md-4 mb-4 card-item salud">
-      <div class="card" onclick="showModal('Centro Médico Maipú', 'Consultorios y laboratorio', ['salud1.jpg'])">
-        <img src="salud1.jpg" class="card-img-top" alt="">
-        <div class="card-body"><h5 class="card-title">Centro Médico Maipú</h5><p>Salud</p></div>
-      </div>
-    </div>
-    <!-- EDUCACIÓN -->
-    <div class="col-md-4 mb-4 card-item educacion">
-      <div class="card" onclick="showModal('Instituto Alfa', 'Cursos de informática y oficios', ['edu1.jpg'])">
-        <img src="edu1.jpg" class="card-img-top" alt="">
-        <div class="card-body"><h5 class="card-title">Instituto Alfa</h5><p>Educación</p></div>
-      </div>
-    </div>
-    <!-- BELLEZA -->
-    <div class="col-md-4 mb-4 card-item belleza">
-      <div class="card" onclick="showModal('Spa Natural', 'Masajes y estética', ['spa1.jpg'])">
-        <img src="spa1.jpg" class="card-img-top" alt="">
-        <div class="card-body"><h5 class="card-title">Spa Natural</h5><p>Belleza</p></div>
-      </div>
-    </div>
-    <!-- AGREGÁ HASTA 15 -->
-    <!-- ... seguí agregando duplicando las cards ... -->
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="comercioModal" tabindex="-1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 id="modalTitle" class="modal-title"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p id="modalDesc"></p>
-        <div id="modalImages" class="d-flex flex-wrap gap-2"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Botón Registrar Comercio -->
-<div class="container text-center my-5">
-  <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#registroModal">
-    Registrar mi comercio
-  </button>
-</div>
-
-<!-- Modal Registro -->
-<div class="modal fade" id="registroModal" tabindex="-1">
-  <div class="modal-dialog">
-    <form class="modal-content" onsubmit="enviarWhatsApp(event)">
-      <div class="modal-header">
-        <h5 class="modal-title">Registrar Comercio</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <input class="form-control mb-2" placeholder="Nombre del comercio" id="nombre">
-        <input class="form-control mb-2" placeholder="Dirección" id="direccion">
-        <input class="form-control mb-2" placeholder="Teléfono" id="telefono">
-        <textarea class="form-control mb-2" placeholder="Detalles del comercio" id="detalles"></textarea>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-success" type="submit">Enviar</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- Scripts -->
-<script>
-  function filterCards(rubro) {
-    const cards = document.querySelectorAll('.card-item');
-    cards.forEach(card => {
-      if (rubro === 'todos' || card.classList.contains(rubro)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
+  <script>
+    const ctx = document.getElementById('graficoReclamos').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Enero', 'Febrero', 'Marzo'],
+        datasets: [
+          {
+            label: 'Falta de Agua',
+            data: [120, 150, 170],
+            borderColor: '#0077c2',
+            backgroundColor: '#0077c220',
+            fill: true,
+            tension: 0.4
+          },
+          {
+            label: 'Cloacas Tapadas',
+            data: [85, 70, 95],
+            borderColor: '#ff7043',
+            backgroundColor: '#ff704320',
+            fill: true,
+            tension: 0.4
+          },
+          {
+            label: 'Electromecánica',
+            data: [65, 58, 45],
+            borderColor: '#9c27b0',
+            backgroundColor: '#9c27b020',
+            fill: true,
+            tension: 0.4
+          },
+          {
+            label: 'Limpieza de Calles',
+            data: [40, 35, 50],
+            borderColor: '#4caf50',
+            backgroundColor: '#4caf5020',
+            fill: true,
+            tension: 0.4
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          },
+          title: {
+            display: true,
+            text: 'Evolución de Reclamos (Enero - Marzo)',
+            font: {
+              size: 18
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              color: '#ddd'
+            }
+          },
+          y: {
+            grid: {
+              color: '#ddd'
+            }
+          }
+        }
       }
     });
-  }
+  </script>
 
-  function showModal(titulo, descripcion, imagenes) {
-    document.getElementById('modalTitle').textContent = titulo;
-    document.getElementById('modalDesc').textContent = descripcion;
-    const container = document.getElementById('modalImages');
-    container.innerHTML = '';
-    imagenes.forEach(src => {
-      const img = document.createElement('img');
-      img.src = src;
-      img.width = 150;
-      img.className = "rounded";
-      container.appendChild(img);
-    });
-    new bootstrap.Modal(document.getElementById('comercioModal')).show();
-  }
-
-  function enviarWhatsApp(e) {
-    e.preventDefault();
-    const nombre = document.getElementById('nombre').value;
-    const direccion = document.getElementById('direccion').value;
-    const telefono = document.getElementById('telefono').value;
-    const detalles = document.getElementById('detalles').value;
-    const mensaje = `¡Hola! Quiero registrar mi comercio:\nNombre: ${nombre}\nDirección: ${direccion}\nTel: ${telefono}\nDetalles: ${detalles}`;
-    const url = `https://wa.me/5492616246767?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
-  }
-
-  document.getElementById('searchInput').addEventListener('input', function () {
-    const valor = this.value.toLowerCase();
-    document.querySelectorAll('.card-item').forEach(card => {
-      const texto = card.innerText.toLowerCase();
-      card.style.display = texto.includes(valor) ? 'block' : 'none';
-    });
-  });
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

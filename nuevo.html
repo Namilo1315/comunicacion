@@ -72,7 +72,7 @@
     canvas {
       width: 100% !important;
       height: auto !important;
-      background-color: white; /* fondo blanco del gráfico */
+      background-color: white;
       border-radius: 10px;
     }
 
@@ -97,6 +97,15 @@
       color: #444;
     }
 
+    .tabla-responsive {
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    .tabla-responsive table {
+      min-width: 600px;
+    }
+
     @media (max-width: 600px) {
       .titulo {
         flex-direction: column;
@@ -106,23 +115,18 @@
       .destacado {
         flex-direction: column;
         text-align: center;
-      } 
-      .tabla-responsive {
-  overflow-x: auto;
-  margin-top: 20px;
-}
-
-.tabla-responsive table {
-  min-width: 600px;
-}
-
+      }
+      canvas {
+        max-width: 100%;
+        height: 250px !important;
+      }
     }
   </style>
 </head>
 <body>
     
-   <!-- Enlace para volver -->
-   <div style="margin-bottom: 10px;">
+  <!-- Enlace para volver -->
+  <div style="margin-bottom: 10px;">
     <a href="reclamos.html" style="text-decoration: none; color: #0077c2; font-weight: bold; font-size: 1rem;">
       ← Volver
     </a>
@@ -133,60 +137,63 @@
       <i class="fas fa-chart-line"></i>
       <h2>Reclamos más frecuentes (Enero - Marzo)</h2>
     </div>
-
-    <p>Durante los primeros tres meses del año, los reclamos más visibles por parte de los vecinos han sido: <strong>falta de agua</strong>, <strong>cloacas tapadas</strong>, <strong>fallas electromecánicas</strong> y <strong>limpieza de calles</strong>. El reclamo más grave y reiterado ha sido la falta de agua, generando preocupación en distintos barrios.</p>
+  
+    <p>Durante los primeros tres meses del año, los reclamos más visibles por parte de los vecinos han sido: <strong>falta de agua</strong>, <strong>luminarias</strong>, <strong>pérdida de agua</strong>, <strong>limpieza de acequias</strong> y <strong>limpieza</strong>. El reclamo más grave y reiterado ha sido la falta de agua, generando preocupación en distintos barrios.</p>
+  
     <div class="destacado">
       <i class="fas fa-tint"></i>
       <div class="destacado-texto">
         <h3>🔵 Reclamo Destacado: Falta de Agua</h3>
-        <p>El servicio de agua fue el principal motivo de reclamo durante el primer trimestre. Con más de 170 reclamos solo en marzo, esta problemática ha sido la más urgente para resolver en las zonas afectadas.</p>
+        <p>El servicio de agua fue el principal motivo de reclamo durante el primer trimestre. Con más de 56 reclamos solo en marzo, esta problemática ha sido la más urgente para resolver en las zonas afectadas.</p>
       </div>
     </div>
+  
     <div class="tabla-responsive">
       <table class="tabla-reclamos">
         <thead>
           <tr>
             <th>Mes</th>
             <th>Falta de Agua</th>
-            <th>Cloacas Tapadas</th>
-            <th>Electromecánica</th>
-            <th>Limpieza de Calles</th>
+            <th>Luminarias</th>
+            <th>Pérdida de Agua</th>
+            <th>Limpieza de Acequias</th>
+            <th>Limpieza</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Enero</td>
-            <td>120</td>
-            <td>85</td>
-            <td>65</td>
-            <td>40</td>
+            <td>33</td>
+            <td>13</td>
+            <td>11</td>
+            <td>10</td>
+            <td>8</td>
           </tr>
           <tr>
             <td>Febrero</td>
-            <td>150</td>
-            <td>70</td>
-            <td>58</td>
-            <td>35</td>
+            <td>21</td>
+            <td>11</td>
+            <td>5</td>
+            <td>2</td>
+            <td>15</td>
           </tr>
           <tr>
             <td>Marzo</td>
-            <td>170</td>
-            <td>95</td>
-            <td>45</td>
-            <td>50</td>
+            <td>3</td>
+            <td>6</td>
+            <td>7</td>
+            <td>3</td>
+            <td>3</td>
           </tr>
         </tbody>
       </table>
     </div>
-    
-    
+  
     <div class="grafico">
       <canvas id="graficoReclamos"></canvas>
     </div>
-
-    
   </div>
-
+  
   <script>
     const ctx = document.getElementById('graficoReclamos').getContext('2d');
     new Chart(ctx, {
@@ -196,33 +203,41 @@
         datasets: [
           {
             label: 'Falta de Agua',
-            data: [120, 150, 170],
+            data: [33, 21, 3],
             borderColor: '#0077c2',
             backgroundColor: '#0077c220',
             fill: true,
             tension: 0.4
           },
           {
-            label: 'Cloacas Tapadas',
-            data: [85, 70, 95],
+            label: 'Luminarias',
+            data: [13, 11, 6],
             borderColor: '#ff7043',
             backgroundColor: '#ff704320',
             fill: true,
             tension: 0.4
           },
           {
-            label: 'Electromecánica',
-            data: [65, 58, 45],
+            label: 'Pérdida de Agua',
+            data: [11, 5, 7],
             borderColor: '#9c27b0',
             backgroundColor: '#9c27b020',
             fill: true,
             tension: 0.4
           },
           {
-            label: 'Limpieza de Calles',
-            data: [40, 35, 50],
+            label: 'Limpieza de Acequias',
+            data: [10, 2, 3],
             borderColor: '#4caf50',
             backgroundColor: '#4caf5020',
+            fill: true,
+            tension: 0.4
+          },
+          {
+            label: 'Limpieza',
+            data: [8, 15, 3],
+            borderColor: '#ffca28',
+            backgroundColor: '#ffca2820',
             fill: true,
             tension: 0.4
           }
@@ -230,15 +245,21 @@
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
-            position: 'bottom'
+            position: 'bottom',
+            labels: {
+              font: {
+                size: window.innerWidth < 600 ? 10 : 14
+              }
+            }
           },
           title: {
             display: true,
             text: 'Evolución de Reclamos (Enero - Marzo)',
             font: {
-              size: 18
+              size: window.innerWidth < 600 ? 14 : 18
             }
           }
         },
@@ -246,11 +267,22 @@
           x: {
             grid: {
               color: '#ddd'
+            },
+            ticks: {
+              font: {
+                size: window.innerWidth < 600 ? 10 : 12
+              }
             }
           },
           y: {
             grid: {
               color: '#ddd'
+            },
+            ticks: {
+              font: {
+                size: window.innerWidth < 600 ? 10 : 12
+              },
+              stepSize: 5
             }
           }
         }
@@ -260,3 +292,4 @@
 
 </body>
 </html>
+

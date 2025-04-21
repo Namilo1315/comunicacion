@@ -1,474 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Métricas Comunicación 2025</title>
-  <link rel="icon" href="./logo.png" type="image/x-icon" />
-  <!-- Bootstrap CSS -->
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./estilo.css">
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Estilos personalizados -->
-  <style>
-    html {
-      font-size: 14px;
-    }
+    <title>Panel de Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    body {
-      background-color: #f0f8ff;
-      font-size: 1rem;
-    }
+        /* Fondo de marca de agua */
+        .watermark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.08;
+            font-size: 3rem;
+            font-weight: 500;
+            color:  #004cff;
+            transform: rotate(-20deg);
+            pointer-events: none;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            justify-items: center;
+            align-items: center;
+        }
 
-    .container {
-      margin-top: 20px;
-    }
+        .watermark span {
+            white-space: nowrap;
+        }
 
-    .chart-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.685);
+            width: 400px;
+            text-align: center;
+            font-size: 18px;
+            position: relative;
+            z-index: 1; /* Para que quede por encima de la marca de agua */
+        }
 
-    .chart-box {
-      width: 100%;
-      max-width: 400px;
-    }
+        h2 {
+            color: #000000b0;
+            margin-bottom: 20px;
+        }
 
-    .btn-mes {
-      margin: 5px;
-      border-radius: 20px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    .actual{
-      background-color: #01579b;
-      color: white;
-    }
-    .btn-mes:hover {
-      background-color: #01579b;
-      color: white;
-    }
+        img {
+            width: 80px;
+        }
 
-    #visorPDF {
-      border: 2px solid #90caf9;
-      border-radius: 10px;
-      width: 100%;
-      height: 600px;
-      margin-top: 20px;
-    }
-    
-  </style>
-    </head>
-<body> <!-- Navbar mejorada -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm ">
-      <div class="container-fluid">
-        <!-- Logo y título -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="./logo.png" alt="Logo" width="50" class="me-2" />
-          <span class="fw-bold text-primary">Dirección de Comunicación</span>
-        </a>
-    
-        <!-- Botón hamburguesa móvil -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <!-- Ítems del menú -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link fw-medium" href="./index.html">📍 Maipú Municipio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-medium" href="./matias.html">👨‍💼 Matías Stevanato</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-medium" href="./reclamos.html">📢 Reclamos</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-    <div class="container">
-        <h1 class="text-center text-primary mb-4">📊 Métricas de Redes Sociales </h1>
-  
-  <p class="text-center text-secondary px-3">
-    Conocé el rendimiento mensual las redes sociales de Maipú Municipio. Visualizá el alcance y comportamiento de tus publicaciones en Facebook e Instagram mes a mes. Esta herramienta nos ayudará a tomar mejores decisiones estratégicas.
-  </p>
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
 
-  <div class="d-flex flex-column align-items-center mt-4">
-    <h4 class="mb-2">📅 Seleccioná un mes para ver los datos:</h4>
-    <select id="mesSelector" class="form-select w-50" onchange="updateCharts(this.value)">
-      <option value="enero">Enero</option>
-      <option value="febrero">Febrero</option>
-      <option value="marzo">Marzo</option>
-      <option value="abril">Abril</option>
-      <option value="mayo">Mayo</option>
-      <option value="junio">Junio</option>
-      <option value="julio">Julio</option>
-      <option value="agosto">Agosto</option>
-      <option value="septiembre">Septiembre</option>
-      <option value="octubre">Octubre</option>
-      <option value="noviembre">Noviembre</option>
-      <option value="diciembre">Diciembre</option>
-    </select>
-  </div>
-     <!-- Sección Maipú Municipio -->
-<section id="maipu" class="py-3 bg-white border-top mt-4">
-    <div class="container">
-      <!-- Título principal -->
-      <h2 class="text-center text-primary fw-bold mb-3">📍 Analisís Maipú Municipio</h2>
-      <p class="text-center text-muted mb-5">
-        Monitoreo mensual del rendimiento en redes sociales del Municipio. Consultá el alcance e interacción en <strong>Facebook</strong> e <strong>Instagram</strong> de forma clara y organizada.
-      </p>
-  
-      <!-- Gráficos -->
-      <div class="row justify-content-center g-5">
-        <!-- Facebook -->
-        <div class="col-lg-6 col-md-12">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-header bg-info text-white text-center fs-5 d-flex align-items-center justify-content-center gap-2">
-              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook Logo" width="24" height="24" style="filter: invert(1);" />
-              Facebook
-            </div>
-            <div class="card-body d-flex justify-content-center">
-              <canvas id="fbAlcanceChart" style="max-width: 100%; height: auto;"></canvas>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Instagram -->
-        <div class="col-lg-6 col-md-12">
-          <div class="card shadow-sm border-0 h-100">
-            <div class="card-header bg-danger text-white text-center fs-5 d-flex align-items-center justify-content-center gap-2">
-              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram Logo" width="24" height="24" style="filter: invert(1);" />
-              Instagram
-            </div>
-            <div class="card-body d-flex justify-content-center">
-              <canvas id="igAlcanceChart" style="max-width: 100%; height: auto;"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-    <!-- Evento Facebook -->
-<div class="container text-center mt-5">
-  <h3 class="text-info fw-bold">📌 Evento Destacado del Mes - Facebook</h3>
-  <img id="eventoFacebook" src="" alt="Evento Facebook"
-       class="img-fluid rounded shadow-lg mt-3 d-block mx-auto"
-       style="max-height: 500px; cursor: pointer; display: none;"
-       onclick="abrirModal(this.src)">
-  <p id="descFacebook" class="mt-2 text-muted"></p>
-</div>
-  <!-- Tabla Facebook -->
-  <div class="mt-5">
-    <div class="card shadow-sm border-0 mb-4">
-      <div class="card-header bg-info text-white text-center fs-5 fw-semibold d-flex align-items-center justify-content-center gap-2">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook Logo" width="20" height="20" style="filter: invert(1);" />
-        Facebook - Métricas Mensuales
-      </div>
-      <div class="card-body table-responsive">
-        <table class="table table-hover align-middle text-center">
-          <thead class="table-light">
-            <tr>
-              <th>Mes</th>
-              <th>Alcances</th>
-              <th>Visualizaciones</th>
-              <th>Seguidores Totales</th>
-              <th>Seguidores Mensuales</th>
-              <th>Visitas</th>
-              <th>Mensajes</th>
-            </tr>
-          </thead>
-          <tbody id="fbTableBody">
-            <!-- Datos dinámicos -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div class="container text-center mt-5">
-    <h3 class="text-danger fw-bold">📌 Evento Destacado del Mes - Instagram</h3>
-    <img id="eventoInstagram" src="" alt="Evento Instagram"
-         class="img-fluid rounded shadow-lg mt-3 d-block mx-auto"
-         style="max-height: 500px; cursor: pointer; display: none;"
-         onclick="abrirModal(this.src)">
-    <p id="descInstagram" class="mt-2 text-muted"></p>
-  </div>
+        button:hover {
+            background-color: #0056b3;
+        }
 
+        .error {
+            color: red;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 500;
+        }
 
-  
-  <!-- Tabla Instagram -->
-  <div class="mt-4">
-    <div class="card shadow-sm border-0">
-      <div class="card-header bg-danger text-white text-center fs-5 fw-semibold d-flex align-items-center justify-content-center gap-2">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram Logo" width="20" height="20" style="filter: invert(1);" />
-        Instagram - Métricas Mensuales
-      </div>
-      <div class="card-body table-responsive">
-        <table class="table table-hover align-middle text-center">
-          <thead class="table-light">
-            <tr>
-              <th>Mes</th>
-              <th>Alcances</th>
-              <th>Visualizaciones</th>
-              <th>Seguidores Totales</th>
-              <th>Seguidores Mensuales</th>
-              <th>Visitas</th>
-              <th>Mensajes</th>
-            </tr>
-          </thead>
-          <tbody id="igTableBody">
-            <!-- Datos dinámicos -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-   
-  
+        .spinner {
+            display: none;
+            margin: 20px auto;
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
 
-<!-- MODAL DE IMAGEN -->
-<div id="modalImagen" class="modal fade" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content bg-white">
-      <div class="modal-header border-0">
-        <h5 class="modal-title">Evento en detalle</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img id="modalImgContenido" src="" alt="Imagen Ampliada" class="img-fluid rounded shadow">
-      </div>
-    </div>
-  </div>
-</div>
- 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
+        .bot {
+            font-size: 16px;
+            font-weight: 500;
+        }
 
-<section id="reclamos" class="py-5" style="background-color: #f0f8ff;">
-  <div class="container">
-    <h1 class="text-center mb-4" style="color: #0277bd;">📢 Acumulativo</h1>
-    <p class="text-center text-muted">Visualizá los reclamos recibidos desde redes sociales por mes, zona y área.</p>
+        a {
+            text-decoration: none;
+        }
 
-    <!-- Sección de botones para PDF -->
-    <div class="text-center my-4">
-      <h4 class="text-primary mb-3">📄 Ver Informes Mensuales en PDF</h4>
-      <div class="d-flex flex-wrap justify-content-center">
+        p {
+            font-size: 15px;
+            margin-top: 10px;
+            color: #000000d0;
+        }
 
+        p:hover {
+            color: blue;
+        }
+        .input-group {
+    position: relative;
+    margin: 15px 0;
+}
 
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipuenero.pdf')">Enero</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipufebrero.pdf')">Febrero</button>
-        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('maipumarzo.pdf')">Marzo</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('abril.pdf')">Abril</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('mayo.pdf')">Mayo</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('junio.pdf')">Junio</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('julio.pdf')">Julio</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('agosto.pdf')">Agosto</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('septiembre.pdf')">Septiembre</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('octubre.pdf')">Octubre</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('noviembre.pdf')">Noviembre</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('diciembre.pdf')">Diciembre</button>
-      </div>
-   
-      <iframe id="visorPDF" frameborder="0" style="width: 100%; height: 700px;"></iframe>
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 25px;
+    color: #007bff;
+}
 
-    </div>
-  </div>
-</section>
-<!-- Otros contenidos dentro de container -->
-<div class="container">
-  <!-- tu PDF, métricas, etc. -->
-</div>
-</div>
- 
-<!-- Footer estilizado -->
-<footer class="text-white text-center py-5 mt-5" style="background-color: #004d66;">
-  <h5 class="mb-0">
-    <i class="fas fa-city me-2" style="color: #ffffff;"></i>
-    Municipalidad de Maipú © 2025 - Todos los derechos reservados por la Dirección de Comunicacion - NL
-  </h5>
-</footer>
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
 
+.input-group input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
 
-<script>
+button.bot {
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
 
-function cargarPDF(ruta) {
-  document.getElementById('visorPDF').src = './pdfredes/' + ruta;
+button.bot:hover {
+    background-color: #004bbd;
 }
 
 
-  window.onload = function () {
-    cargarPDF('maipumarzo.pdf');
-  };
+    </style>
+</head>
+<body>
 
-  const data = {
-  enero: {
-    facebook: { alcances: 108200, visualizaciones: 718100, seguidoresTotales: 67427, seguidoresMensuales: 727, visitas: 55600, mensajes: 190 },
-    instagram: { alcances: 77600, visualizaciones: 865900, seguidoresTotales: 40526, seguidoresMensuales: 3200, visitas: 29900, mensajes: 719 }
-  },
-  febrero: {
-    facebook: { alcances: 71100, visualizaciones: 384600, seguidoresTotales: 68154, seguidoresMensuales: 379, visitas: 41600, mensajes: 177 },
-    instagram: { alcances: 52300, visualizaciones: 732100, seguidoresTotales: 43726, seguidoresMensuales: 2300, visitas: 35500, mensajes: 862 }
-  },
-  marzo: {
-    facebook: { alcances: 110600, visualizaciones: 456900, seguidoresTotales: 68400, seguidoresMensuales: 246, visitas: 20700, mensajes: 114 },
-    instagram: { alcances: 53500, visualizaciones: 617800, seguidoresTotales: 44600, seguidoresMensuales: 874, visitas: 10300, mensajes: 497 }
-  }
-};
+<div class="watermark">
+    <span>Dirección de Comunicación</span>
+    <span>Dirección de Comunicación </span>
+    <span>Dirección de Comunicación </span>
+    <span>Dirección de Comunicación </span>
+    <span>Dirección de Comunicación </span>
+    <span>Dirección de Comunicación </span>
+    <span>Dirección de Comunicación </span>
+    <span>Dirección de Comunicación </span>
+    <span>Dirección de Comunicación </span>
+    <span>Dirección de Comunicación </span>
+    <span>Dirección de Comunicación </span>
+    <span>Dirección de Comunicación </span>
+</div>
 
-  
+<div class="login-container" id="loginContainer">
+    <img src="./logo.png" alt="Logo del sistema">
+    <h2>Iniciar Sesión</h2>
+    <div id="message"></div>
 
-  const eventosFacebook = {
-  enero: {
-    imagen: './imagenes/fenero.PNG', // ¡Confirmar que esté en minúsculas el nombre!
-    descripcion: '💥 ¡Vuelve el Festival que todos estábamos esperando!🍇 Festival del Malbec y el Olivo 🫒 @festivalmalbecyolivo.oficial🗓️ 13 al 16 de Febrero.📍 Teatro Griego de Maipú, Parque Metropolitano Sur.'
-  },
-  febrero: {
-    imagen: './imagenes/ffebrero.PNG', // ¡Confirmar que esté en minúsculas el nombre!
-    descripcion: '🍇Conocé a las candidatas a Reina de la Vendimia de Maipú 2025.'
-  },
-  marzo: {
-    imagen: './imagenes/fmarzo.PNG', // ¡Confirmar que esté en minúsculas el nombre!
-    descripcion: '✨ ¡Gran Baile para Adultos Mayores! 💃🕺'
-  }
-};
+    <div class="input-group">
+        <span class="input-icon"><i class="fas fa-user"></i></span>
+        <input type="text" id="username" placeholder="Usuario" required>
+    </div>
 
-const eventosInstagram = {
-  enero: {
-    imagen: './imagenes/ienero.PNG', // Confirmar que también exista en minúsculas
-    descripcion: '📸 Comedia de RODOLFO RANNI , Teatro Imperial.'
-  },
-  febrero: {
-    imagen: './imagenes/ifebrero.PNG', // Confirmar que también exista en minúsculas
-    descripcion: '📸 Comedia de RODOLFO RANNI , Teatro Imperial.'
-  },
-  marzo: {
-    imagen: './imagenes/imarzo.PNG', // Confirmar que también exista en minúsculas
-    descripcion: '👑 Junto a Trinidad, participamos en la Fiesta de la Cosecha en el Aeropuerto de Mendoza.'
-  }
-};
+    <div class="input-group">
+        <span class="input-icon"><i class="fas fa-lock"></i></span>
+        <input type="password" id="password" placeholder="Contraseña" required>
+    </div>
+
+    <button class="bot" onclick="login()"> INGRESAR</button>
+</div>
 
 
-  function updateCharts(mes) {
-    const fb = data[mes].facebook;
-    const ig = data[mes].instagram;
+<!-- Círculo de carga -->
+<div class="spinner" id="spinner"></div>
 
-    updateChart(fbAlcanceChart, fb);
-    updateChart(igAlcanceChart, ig);
-
-    cargarTabla(mes);
-    mostrarEventosDestacados(mes); // NUEVO: carga los eventos destacados
-  }
-
-  function updateChart(chart, valores) {
-    chart.data.datasets[0].data = [
-      valores.alcances,
-      valores.visualizaciones,
-      valores.seguidoresTotales,
-      valores.seguidoresMensuales,
-      valores.visitas,
-      valores.mensajes
+<script>
+    const validCredentials = [
+        { username: "metricas", password: "comunicacion2025" }
+       
     ];
-    chart.update();
-  }
+    
+    function login() {
+        const usernameField = document.getElementById("username");
+        const passwordField = document.getElementById("password");
+        const username = usernameField.value;
+        const password = passwordField.value;
+        const message = document.getElementById("message");
+        const spinner = document.getElementById("spinner");
+        const loginContainer = document.getElementById("loginContainer");
 
-  function crearGrafico(id, color) {
-    return new Chart(document.getElementById(id).getContext('2d'), {
-      type: 'bar',
-      data: {
-        labels: ['Alcances', 'Visualizaciones', 'Seguidores Totales', 'Seguidores Mensuales', 'Visitas', 'Mensajes'],
-        datasets: [{
-          label: 'Datos',
-          data: [],
-          backgroundColor: color
-        }]
-      },
-      options: {
-        indexAxis: 'y',
-        animation: {
-          duration: 1000,
-          easing: 'easeOutBounce'
+        message.innerText = "";
+        message.className = "";
+
+        if (username === "" || password === "") {
+            message.innerText = "Ambos campos son obligatorios";
+            message.className = "error";
+            return;
         }
-      }
-    });
-  }
 
-  const fbAlcanceChart = crearGrafico('fbAlcanceChart', '#007bff');
-  const igAlcanceChart = crearGrafico('igAlcanceChart', '#ff8000');
+        usernameField.value = "";
+        passwordField.value = "";
 
-  function cargarTabla(mes) {
-    const fb = data[mes].facebook;
-    const ig = data[mes].instagram;
+        const isValidUser = validCredentials.some(
+            (cred) => cred.username === username && cred.password === password
+        );
 
-    document.getElementById('fbTableBody').innerHTML = `
-      <tr>
-        <td>${mes.charAt(0).toUpperCase() + mes.slice(1)}</td>
-        <td>${fb.alcances}</td>
-        <td>${fb.visualizaciones}</td>
-        <td>${fb.seguidoresTotales}</td>
-        <td>${fb.seguidoresMensuales}</td>
-        <td>${fb.visitas}</td>
-        <td>${fb.mensajes}</td>
-      </tr>
-    `;
-    document.getElementById('igTableBody').innerHTML = `
-      <tr>
-        <td>${mes.charAt(0).toUpperCase() + mes.slice(1)}</td>
-        <td>${ig.alcances}</td>
-        <td>${ig.visualizaciones}</td>
-        <td>${ig.seguidoresTotales}</td>
-        <td>${ig.seguidoresMensuales}</td>
-        <td>${ig.visitas}</td>
-        <td>${ig.mensajes}</td>
-      </tr>
-    `;
-  }
+        if (isValidUser) {
+            spinner.style.display = "block";
+            loginContainer.style.display = "none";
 
-  function mostrarEventosDestacados(mes) {
-    const fbImg = document.getElementById("eventoFacebook");
-    const fbDesc = document.getElementById("descFacebook");
-    const igImg = document.getElementById("eventoInstagram");
-    const igDesc = document.getElementById("descInstagram");
-
-    if (eventosFacebook[mes]) {
-      fbImg.src = eventosFacebook[mes].imagen;
-      fbImg.style.display = "block";
-      fbDesc.textContent = eventosFacebook[mes].descripcion;
-    } else {
-      fbImg.style.display = "none";
-      fbDesc.textContent = "";
+            setTimeout(() => {
+                window.location.href = "./redes.html";
+            }, 1000);
+        } else {
+            message.innerText = "Usuario o contraseña incorrectos";
+            message.className = "error";
+        }
     }
-
-    if (eventosInstagram[mes]) {
-      igImg.src = eventosInstagram[mes].imagen;
-      igImg.style.display = "block";
-      igDesc.textContent = eventosInstagram[mes].descripcion;
-    } else {
-      igImg.style.display = "none";
-      igDesc.textContent = "";
-    }
-  }
-
-  function abrirModal(src) {
-    const modalImg = document.getElementById("modalImgContenido");
-    modalImg.src = src;
-    const modal = new bootstrap.Modal(document.getElementById("modalImagen"));
-    modal.show();
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    updateCharts('enero'); // Cargar todo al inicio con enero
-  });
 </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

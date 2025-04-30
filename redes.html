@@ -61,6 +61,18 @@
       height: 600px;
       margin-top: 20px;
     }
+    .navbar-nav .nav-item div {
+  transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-item div:hover {
+  background-color: #e3f2fd;
+}
+
+.navbar-nav .nav-item .bg-primary:hover {
+  background-color: #014272; /* Oscurecido en hover */
+}
+
     
   </style>
     </head>
@@ -78,17 +90,22 @@
           <span class="navbar-toggler-icon"></span>
         </button>
     
-        <!-- Ítems del menú -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link fw-medium" href="./redes.html">📍 Maipú Municipio</a>
+              <div class="p-2 rounded border bg-primary mx-1">
+                <a class="nav-link fw-medium text-white" href="./redes.html">📍 Maipú Municipio</a>
+              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-medium" href="./matias.html">👨‍💼 Matías Stevanato</a>
+              <div class="p-2 rounded border bg-white mx-1">
+                <a class="nav-link fw-medium" href="./matias.html">👨‍💼 Matías Stevanato</a>
+              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-medium" href="./reclamos.html">📢 Reclamos</a>
+              <div class="p-2 rounded border bg-white mx-1">
+                <a class="nav-link fw-medium" href="./reclamos.html">📢 Reclamos</a>
+              </div>
             </li>
           </ul>
         </div>

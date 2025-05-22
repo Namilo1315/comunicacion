@@ -2,9 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Reclamos Enero-Marzo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Métricas Comunicación 2025</title>
+  <link rel="icon" href="./logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -125,6 +127,10 @@
     html{
       font-size: 12px;
     }
+    .color{
+      background-color: #ff000012;
+
+    }
   </style>
 </head>
 <body>
@@ -139,18 +145,26 @@
   <div class="seccion-reclamos">
     <div class="titulo">
       <i class="fas fa-chart-line"></i>
-      <h2>Reclamos más frecuentes (Enero - Marzo)</h2>
+      <h2>Reclamos más frecuentes (Enero - Abril)</h2>
     </div>
-  
-    <p>Durante los primeros tres meses del año, los reclamos más visibles por parte de los vecinos han sido: <strong>falta de agua</strong>, <strong>luminarias</strong>, <strong>pérdida de agua</strong>, <strong>limpieza de acequias</strong> y <strong>limpieza</strong>. El reclamo más grave y reiterado ha sido la falta de agua, generando preocupación en distintos barrios.</p>
+    <p> Durante los <strong>dos primeros meses del año</strong>, el reclamo más frecuente fue por la <strong>falta de agua</strong>, seguido de situaciones relacionadas con <strong>luminaria</strong> y <strong>limpieza en general</strong>. Estas problemáticas concentraron la mayoría de los reportes vecinales en <strong>enero y febrero</strong>, siendo el agua el servicio más crítico. </p> <p> Sin embargo, en los meses de <strong>marzo y abril</strong>, se observó una <strong>notable disminución</strong> en los reclamos por <strong>falta de agua</strong> y <strong>limpieza</strong>. Esto permitió que otras problemáticas tomaran mayor protagonismo, posicionando a los reclamos por <strong>luminarias</strong> y <strong>cloacas tapadas</strong> como los más destacados del período. </p> <p> Esta variación evidencia un <strong>cambio en las prioridades</strong> de los vecinos y una <strong>mejora parcial</strong> en los servicios inicialmente más afectados. </p>
   
     <div class="destacado">
       <i class="fas fa-tint"></i>
       <div class="destacado-texto">
-        <h3>🔵 Reclamo Destacado: Falta de Agua</h3>
+        <h3> 🔺 Reclamo Destacado Enero y Febrero: Falta de Agua</h3>
         <p>El servicio de agua fue el principal motivo de reclamo durante el primer trimestre. Con más de 56 reclamos solo en marzo, esta problemática ha sido la más urgente para resolver en las zonas afectadas.</p>
       </div>
     </div>
+   
+    <div class="destacado">
+      <i class="fas fa-lightbulb" style="color: #ff9b28;"></i>
+      <div class="destacado-texto">
+        <h3>🔺 Reclamo Destacado Marzo y Abril: Luminarias y Cloacas</h3>
+        <p>Durante el mes de abril, el área de electromecánica fue la más destacada en cantidad de reclamos. Se registraron numerosos reportes por luminarias en mal estado o sin funcionamiento, así como también por cloacas tapadas.</p>
+      </div>
+    </div>
+    
   
     <div class="tabla-responsive">
       <table class="tabla-reclamos">
@@ -162,32 +176,45 @@
             <th>Pérdida de Agua</th>
             <th>Limpieza de Acequias</th>
             <th>Limpieza</th>
+            <th>Cloacas</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Enero</td>
-            <td>33</td>
-            <td>13</td>
+            <td class="color">33</td>
+            <td class="color">13</td>
             <td>11</td>
             <td>10</td>
             <td>8</td>
+            <td>4</td>
           </tr>
           <tr>
             <td>Febrero</td>
-            <td>21</td>
+            <td class="color">21</td>
             <td>11</td>
             <td>5</td>
             <td>2</td>
-            <td>15</td>
+            <td class="color">15</td>
+            <td>6</td>
           </tr>
           <tr>
             <td>Marzo</td>
             <td>3</td>
             <td>6</td>
-            <td>7</td>
+            <td class="color">7</td>
             <td>3</td>
             <td>3</td>
+            <td class="color">7</td>
+          </tr>
+          <tr>
+            <td>Abril</td>
+            <td>4</td>
+            <td class="color">10</td>
+            <td>4</td>
+            <td>4</td>
+            <td>2</td>
+            <td class="color">8</td>
           </tr>
         </tbody>
       </table>
@@ -203,11 +230,11 @@
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Enero', 'Febrero', 'Marzo'],
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
         datasets: [
           {
             label: 'Falta de Agua',
-            data: [33, 21, 3],
+            data: [33, 21, 3 ,4],
             borderColor: '#0077c2',
             backgroundColor: '#0077c220',
             fill: true,
@@ -215,7 +242,7 @@
           },
           {
             label: 'Luminarias',
-            data: [13, 11, 6],
+            data: [13, 11, 6 , 10],
             borderColor: '#ff7043',
             backgroundColor: '#ff704320',
             fill: true,
@@ -223,7 +250,7 @@
           },
           {
             label: 'Pérdida de Agua',
-            data: [11, 5, 7],
+            data: [11, 5, 7, 4],
             borderColor: '#9c27b0',
             backgroundColor: '#9c27b020',
             fill: true,
@@ -231,7 +258,7 @@
           },
           {
             label: 'Limpieza de Acequias',
-            data: [10, 2, 3],
+            data: [10, 2, 3, 4],
             borderColor: '#4caf50',
             backgroundColor: '#4caf5020',
             fill: true,
@@ -239,9 +266,17 @@
           },
           {
             label: 'Limpieza',
-            data: [8, 15, 3],
+            data: [8, 15, 3, 2],
             borderColor: '#ffca28',
             backgroundColor: '#ffca2820',
+            fill: true,
+            tension: 0.4
+          },
+          {
+            label: 'Cloacas',
+            data: [4, 6, 7, 8],
+            borderColor: '#f44336', 
+            backgroundColor: '#f4433620',
             fill: true,
             tension: 0.4
           }

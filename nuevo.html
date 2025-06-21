@@ -145,23 +145,30 @@
   <div class="seccion-reclamos">
     <div class="titulo">
       <i class="fas fa-chart-line"></i>
-      <h2>Reclamos más frecuentes (Enero - Abril)</h2>
+      <h2>Reclamos más frecuentes</h2>
     </div>
-    <p> Durante los <strong>dos primeros meses del año</strong>, el reclamo más frecuente fue por la <strong>falta de agua</strong>, seguido de situaciones relacionadas con <strong>luminaria</strong> y <strong>limpieza en general</strong>. Estas problemáticas concentraron la mayoría de los reportes vecinales en <strong>enero y febrero</strong>, siendo el agua el servicio más crítico. </p> <p> Sin embargo, en los meses de <strong>marzo y abril</strong>, se observó una <strong>notable disminución</strong> en los reclamos por <strong>falta de agua</strong> y <strong>limpieza</strong>. Esto permitió que otras problemáticas tomaran mayor protagonismo, posicionando a los reclamos por <strong>luminarias</strong> y <strong>cloacas tapadas</strong> como los más destacados del período. </p> <p> Esta variación evidencia un <strong>cambio en las prioridades</strong> de los vecinos y una <strong>mejora parcial</strong> en los servicios inicialmente más afectados. </p>
-  
-    <div class="destacado">
-      <i class="fas fa-tint"></i>
-      <div class="destacado-texto">
-        <h3> 🔺 Reclamo Destacado Enero y Febrero: Falta de Agua</h3>
-        <p>El servicio de agua fue el principal motivo de reclamo durante el primer trimestre. Con más de 56 reclamos solo en marzo, esta problemática ha sido la más urgente para resolver en las zonas afectadas.</p>
-      </div>
-    </div>
-   
+    <p>
+      Entre los meses de enero y mayo se registraron diversos reclamos vecinales vinculados a servicios públicos esenciales. El seguimiento de estos reportes permite identificar las necesidades emergentes dentro de la comunidad. A continuación, se detallan los reclamos más destacados en este período.
+      </p>
+      
+       
     <div class="destacado">
       <i class="fas fa-lightbulb" style="color: #ff9b28;"></i>
       <div class="destacado-texto">
-        <h3>🔺 Reclamo Destacado Marzo y Abril: Luminarias y Cloacas</h3>
-        <p>Durante el mes de abril, el área de electromecánica fue la más destacada en cantidad de reclamos. Se registraron numerosos reportes por luminarias en mal estado o sin funcionamiento, así como también por cloacas tapadas.</p>
+        <h3>🔺 Reclamos Destacados Enero a Mayo: Agua, Luminarias y Cloacas</h3>
+        <p>
+        Entre los meses de <strong>enero y mayo</strong>, los reclamos más frecuentes estuvieron relacionados con la <strong>falta de agua</strong>, especialmente en enero (33 reclamos) y febrero (21 reclamos). Este problema disminuyó notablemente en los meses siguientes.
+        </p>
+        <p>
+        Las <strong>luminarias</strong> también fueron una causa importante de reclamos, destacándose en <strong>enero (13)</strong> y <strong>abril (10)</strong>. Por su parte, las <strong>cloacas</strong> tuvieron un incremento sostenido, alcanzando su punto más alto en <strong>abril (8 reclamos)</strong>.
+        </p>
+        <p>
+        En <strong>marzo y abril</strong>, se observó una presencia pareja de reclamos en distintas áreas, siendo las <strong>luminarias y cloacas</strong> los servicios más afectados, lo que posicionó al área de electromecánica como una de las más activas en la atención ciudadana.
+        </p>
+        <p>
+        En <strong>mayo</strong>, si bien los reclamos bajaron en general en comparación con meses anteriores, se destacó una <strong>alta demanda en Arbolado Público</strong> por pedidos de <strong>poda de árboles</strong>, lo que refleja nuevas preocupaciones por parte de los vecinos y claro los reclamos persistente al area de Sanitarios como falta de agua y cloacas.
+        </p>
+        
       </div>
     </div>
     
@@ -216,6 +223,15 @@
             <td>2</td>
             <td class="color">8</td>
           </tr>
+          <tr>
+            <td>Mayo</td>
+            <td>2</td>
+            <td >2</td>
+            <td class="color">5</td>
+            <td>0</td>
+            <td>3</td>
+            <td class="color">4</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -230,11 +246,11 @@
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
         datasets: [
           {
             label: 'Falta de Agua',
-            data: [33, 21, 3 ,4],
+            data: [33, 21, 3 ,4, 2],
             borderColor: '#0077c2',
             backgroundColor: '#0077c220',
             fill: true,
@@ -242,7 +258,7 @@
           },
           {
             label: 'Luminarias',
-            data: [13, 11, 6 , 10],
+            data: [13, 11, 6 , 10, 2],
             borderColor: '#ff7043',
             backgroundColor: '#ff704320',
             fill: true,
@@ -250,7 +266,7 @@
           },
           {
             label: 'Pérdida de Agua',
-            data: [11, 5, 7, 4],
+            data: [11, 5, 7, 4, 5],
             borderColor: '#9c27b0',
             backgroundColor: '#9c27b020',
             fill: true,
@@ -258,7 +274,7 @@
           },
           {
             label: 'Limpieza de Acequias',
-            data: [10, 2, 3, 4],
+            data: [10, 2, 3, 4, 0],
             borderColor: '#4caf50',
             backgroundColor: '#4caf5020',
             fill: true,
@@ -266,7 +282,7 @@
           },
           {
             label: 'Limpieza',
-            data: [8, 15, 3, 2],
+            data: [8, 15, 3, 2, 3],
             borderColor: '#ffca28',
             backgroundColor: '#ffca2820',
             fill: true,
@@ -274,7 +290,7 @@
           },
           {
             label: 'Cloacas',
-            data: [4, 6, 7, 8],
+            data: [4, 6, 7, 8, 4],
             borderColor: '#f44336', 
             backgroundColor: '#f4433620',
             fill: true,

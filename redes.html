@@ -176,15 +176,7 @@
       </div>
     </div>
   </section>
-    <!-- Evento Facebook -->
-<div class="container text-center mt-5">
-  <h3 class="text-info fw-bold">📌 Evento Destacado del Mes - Facebook</h3>
-  <img id="eventoFacebook" src="" alt="Evento Facebook"
-       class="img-fluid rounded shadow-lg mt-3 d-block mx-auto"
-       style="max-height: 500px; cursor: pointer; display: none;"
-       onclick="abrirModal(this.src)">
-  <p id="descFacebook" class="mt-2 text-muted"></p>
-</div>
+ 
   <!-- Tabla Facebook -->
   <div class="mt-5">
     <div class="card shadow-sm border-0 mb-4">
@@ -212,14 +204,16 @@
       </div>
     </div>
   </div>
-  <div class="container text-center mt-5">
-    <h3 class="text-danger fw-bold">📌 Evento Destacado del Mes - Instagram</h3>
-    <img id="eventoInstagram" src="" alt="Evento Instagram"
-         class="img-fluid rounded shadow-lg mt-3 d-block mx-auto"
-         style="max-height: 500px; cursor: pointer; display: none;"
-         onclick="abrirModal(this.src)">
-    <p id="descInstagram" class="mt-2 text-muted"></p>
-  </div>
+     <!-- Evento Facebook -->
+<div class="container text-center mt-5">
+  <h3 class="text-info fw-bold">📌 Evento Destacado del Mes - Facebook</h3>
+  <img id="eventoFacebook" src="" alt="Evento Facebook"
+       class="img-fluid rounded shadow-lg mt-3 d-block mx-auto"
+       style="max-height: 500px; cursor: pointer; display: none;"
+       onclick="abrirModal(this.src)">
+  <p id="descFacebook" class="mt-2 text-muted"></p>
+</div>
+
 
 
   
@@ -251,7 +245,14 @@
     </div>
   </div>
    
-  
+  <div class="container text-center mt-5">
+    <h3 class="text-danger fw-bold">📌 Evento Destacado del Mes - Instagram</h3>
+    <img id="eventoInstagram" src="" alt="Evento Instagram"
+         class="img-fluid rounded shadow-lg mt-3 d-block mx-auto"
+         style="max-height: 500px; cursor: pointer; display: none;"
+         onclick="abrirModal(this.src)">
+    <p id="descInstagram" class="mt-2 text-muted"></p>
+  </div>
 
 <!-- MODAL DE IMAGEN -->
 <div id="modalImagen" class="modal fade" tabindex="-1">
@@ -284,8 +285,8 @@
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipuenero.pdf')">Enero</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipufebrero.pdf')">Febrero</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipumarzo.pdf')">Marzo</button>
-        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('maipuabril.pdf')">Abril</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('mayo.pdf')">Mayo</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipuabril.pdf')">Abril</button>
+        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('maipumayo.pdf')">Mayo</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('junio.pdf')">Junio</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('julio.pdf')">Julio</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('agosto.pdf')">Agosto</button>
@@ -323,7 +324,7 @@ function cargarPDF(ruta) {
 
 
   window.onload = function () {
-    cargarPDF('maipuabril.pdf');
+    cargarPDF('maipumayo.pdf');
   };
 
   const data = {
@@ -343,9 +344,14 @@ function cargarPDF(ruta) {
   facebook: { alcances: 49000, visualizaciones: 183700, seguidoresTotales: 68607, seguidoresMensuales: 207, visitas: 15100, mensajes: 111},
   instagram: { alcances: 29900, visualizaciones: 290500, seguidoresTotales: 45215, seguidoresMensuales: 571, visitas: 5300, mensajes: 366
   }
-},
+ },
+ mayo: {
+  facebook: { alcances: 36982, visualizaciones: 103695, seguidoresTotales: 68784, seguidoresMensuales: 177, visitas: 12543, mensajes: 99},
+  instagram: { alcances: 41468, visualizaciones: 368334, seguidoresTotales: 45956, seguidoresMensuales: 741, visitas: 6826, mensajes: 505
+  }
+  },
 
-};
+}; 
 
   
 
@@ -365,6 +371,10 @@ function cargarPDF(ruta) {
   abril: {
     imagen: './imagenes/fabril.PNG', // ¡Confirmar que esté en minúsculas el nombre!
     descripcion: '✨ ¡Móvil veterinario gratuito ❗️ 🗓️ Desde el 29/4 al 9/5 en ciudad de Maipú.'
+  },
+  mayo: {
+    imagen: './imagenes/fmayo.PNG', // ¡Confirmar que esté en minúsculas el nombre!
+    descripcion: '📢 ¡Lanzamos las nuevas líneas de créditos 2025! Si vivís en Maipú y estás pensando en impulsar tu proyecto o emprendimiento'
   }
 };
 
@@ -384,7 +394,11 @@ const eventosInstagram = {
   abril: {
     imagen: './imagenes/iabril.PNG', // Confirmar que también exista en minúsculas
     descripcion: '🙏🏻 Con gran devoción, vivimos juntos el Vía Crucis en Maipú. '
-  }
+  },
+  mayo: {
+    imagen: './imagenes/imayo.PNG', // Confirmar que también exista en minúsculas
+    descripcion: '🌄 Viña, montaña y rincones con historia. Después de la nevada, Maipú nos regala postales únicas. '
+  },
 };
 
 

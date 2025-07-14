@@ -145,32 +145,40 @@
   <div class="seccion-reclamos">
     <div class="titulo">
       <i class="fas fa-chart-line"></i>
-      <h2>Reclamos más frecuentes</h2>
+      <h2  style="color: #0277bd;">Balance del Primer Semestre:</h2>
     </div>
-    <p>
-      Entre los meses de enero y mayo se registraron diversos reclamos vecinales vinculados a servicios públicos esenciales. El seguimiento de estos reportes permite identificar las necesidades emergentes dentro de la comunidad. A continuación, se detallan los reclamos más destacados en este período.
-      </p>
-      
-       
-    <div class="destacado">
-      <i class="fas fa-lightbulb" style="color: #ff9b28;"></i>
-      <div class="destacado-texto">
-        <h3>🔺 Reclamos Destacados Enero a Mayo: Agua, Luminarias y Cloacas</h3>
-        <p>
-        Entre los meses de <strong>enero y mayo</strong>, los reclamos más frecuentes estuvieron relacionados con la <strong>falta de agua</strong>, especialmente en enero (33 reclamos) y febrero (21 reclamos). Este problema disminuyó notablemente en los meses siguientes.
-        </p>
-        <p>
-        Las <strong>luminarias</strong> también fueron una causa importante de reclamos, destacándose en <strong>enero (13)</strong> y <strong>abril (10)</strong>. Por su parte, las <strong>cloacas</strong> tuvieron un incremento sostenido, alcanzando su punto más alto en <strong>abril (8 reclamos)</strong>.
-        </p>
-        <p>
-        En <strong>marzo y abril</strong>, se observó una presencia pareja de reclamos en distintas áreas, siendo las <strong>luminarias y cloacas</strong> los servicios más afectados, lo que posicionó al área de electromecánica como una de las más activas en la atención ciudadana.
-        </p>
-        <p>
-        En <strong>mayo</strong>, si bien los reclamos bajaron en general en comparación con meses anteriores, se destacó una <strong>alta demanda en Arbolado Público</strong> por pedidos de <strong>poda de árboles</strong>, lo que refleja nuevas preocupaciones por parte de los vecinos y claro los reclamos persistente al area de Sanitarios como falta de agua y cloacas.
-        </p>
+   
+
         
+        <p style="margin-top: 8px; font-weight: 500; color: #000000;">
+          Durante estos seis meses, se observa un progreso notable en la reducción de reclamos relacionados con la falta y pérdida de agua, reflejo de importantes mejoras en la infraestructura. Los reclamos por luminarias y cloacas persisten como desafíos constantes pero con gran disminución también, se evidencia un trabajo constante y focalizado para resolverlos. Las variaciones en limpieza y acequias resaltan la importancia de mantener un mantenimiento continuo. En conjunto, el primer semestre muestra una tendencia positiva con una disminución general de reclamos, lo que habla de una gestión cada vez más eficiente y comprometida con las necesidades del Departamento, sin perder de vista las áreas que aún requieren atención prioritaria.
+        </p>
+     
+      <div class="destacado">
+        <i class="fas fa-lightbulb" style="color: #ff9b28;"></i>
+        <div class="destacado-texto">
+          <h3>🔺 Reclamos Destacados Enero a Junio: Agua, Luminarias y Cloacas</h3>
+          <p>
+            Entre los meses de <strong>enero y junio</strong>, los reclamos más frecuentes continuaron relacionados con la <strong>falta de agua</strong>, con un marcado descenso desde enero (<strong>33 reclamos</strong>) hasta junio (<strong>0 reclamos</strong>), evidenciando una mejora significativa en la provisión de este servicio.
+          </p>
+          <p>
+            Las <strong>luminarias</strong> mantuvieron una presencia constante en los reclamos, destacándose en enero (<strong>13 reclamos</strong>) y presentando un nivel estable en junio (<strong>2 reclamos</strong>), reflejando un seguimiento sostenido de este problema a lo largo del semestre.
+          </p>
+          <p>
+            La <strong>pérdida de agua</strong> mostró una disminución progresiva desde enero (<strong>11 reclamos</strong>) hasta junio (<strong>1 reclamo</strong>), mientras que la <strong>limpieza</strong>, tanto general como en acequias, tuvo fluctuaciones menores, con un leve aumento en limpieza general en junio (<strong>4 reclamos</strong>).
+          </p>
+          <p>
+            Los reclamos por <strong>cloacas</strong> evidenciaron un patrón variable, con un incremento hasta abril (<strong>8 reclamos</strong>) y una reducción progresiva en los meses siguientes, culminando con <strong>2 reclamos</strong> en junio.
+          </p>
+          <p>
+            En mayo, se destacó una <strong>alta demanda en Arbolado Público</strong> por pedidos de <strong>poda de árboles</strong>, reflejando nuevas preocupaciones vecinales, mientras que en junio la atención continuó en luminarias y cloacas, aunque con valores reducidos.
+          </p>
+        </div>
       </div>
-    </div>
+      
+     
+      
+    
     
   
     <div class="tabla-responsive">
@@ -232,6 +240,15 @@
             <td>3</td>
             <td class="color">4</td>
           </tr>
+          <tr>
+            <td>Junio</td>
+            <td>0</td>
+            <td >2</td>
+            <td>1</td>
+            <td>1</td>
+            <td class="color">4</td>
+            <td >2</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -246,11 +263,11 @@
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
         datasets: [
           {
             label: 'Falta de Agua',
-            data: [33, 21, 3 ,4, 2],
+            data: [33, 21, 3 ,4, 2, 0],
             borderColor: '#0077c2',
             backgroundColor: '#0077c220',
             fill: true,
@@ -258,7 +275,7 @@
           },
           {
             label: 'Luminarias',
-            data: [13, 11, 6 , 10, 2],
+            data: [13, 11, 6 , 10, 2, 2],
             borderColor: '#ff7043',
             backgroundColor: '#ff704320',
             fill: true,
@@ -266,7 +283,7 @@
           },
           {
             label: 'Pérdida de Agua',
-            data: [11, 5, 7, 4, 5],
+            data: [11, 5, 7, 4, 5, 1],
             borderColor: '#9c27b0',
             backgroundColor: '#9c27b020',
             fill: true,
@@ -274,7 +291,7 @@
           },
           {
             label: 'Limpieza de Acequias',
-            data: [10, 2, 3, 4, 0],
+            data: [10, 2, 3, 4, 0, 1],
             borderColor: '#4caf50',
             backgroundColor: '#4caf5020',
             fill: true,
@@ -282,7 +299,7 @@
           },
           {
             label: 'Limpieza',
-            data: [8, 15, 3, 2, 3],
+            data: [8, 15, 3, 2, 3, 4],
             borderColor: '#ffca28',
             backgroundColor: '#ffca2820',
             fill: true,
@@ -290,7 +307,7 @@
           },
           {
             label: 'Cloacas',
-            data: [4, 6, 7, 8, 4],
+            data: [4, 6, 7, 8, 4 , 2],
             borderColor: '#f44336', 
             backgroundColor: '#f4433620',
             fill: true,

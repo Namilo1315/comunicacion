@@ -279,8 +279,8 @@
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('matiasfebrero.pdf')">Febrero</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('matiasmarzo.pdf')">Marzo</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('matiasabril.pdf')">Abril</button>
-        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('matiasmayo.pdf')">Mayo</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('junio.pdf')">Junio</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('matiasmayo.pdf')">Mayo</button>
+        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('matiasjunio.pdf')">Junio</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('julio.pdf')">Julio</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('agosto.pdf')">Agosto</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('septiembre.pdf')">Septiembre</button>
@@ -305,7 +305,7 @@ function cargarPDF(ruta) {
 
 
   window.onload = function () {
-    cargarPDF('matiasmayo.pdf');
+    cargarPDF('matiasjunio.pdf');
   };
 
   const data = {
@@ -329,8 +329,10 @@ function cargarPDF(ruta) {
     facebook: {alcances: 10331, visualizaciones: 26088, seguidoresTotales:25837,seguidoresMensuales: 107, visitas: 2494, mensajes: 33},
     instagram: { alcances: 27275,visualizaciones: 143779,seguidoresTotales:12649 , seguidoresMensuales: 191, visitas: 1627, mensajes: 134},
   },
-  
-
+  junio: {
+  facebook: { alcances: 95487, visualizaciones: 385546, seguidoresTotales:25935 , seguidoresMensuales: 98, visitas: 1829, mensajes: 17 },
+  instagram: { alcances: 118943, visualizaciones: 225134, seguidoresTotales:12901, seguidoresMensuales: 252, visitas: 1476, mensajes: 144 }
+},
 
   };
 
@@ -354,6 +356,11 @@ const eventosFacebook = {
   mayo: {
     imagen: './imagenes/matiasmayof.PNG',
     descripcion: '👏🏻 Día Nacional de la donación de Organos.'
+  },
+  junio: {
+    imagen: './imagenes/matiasjuniof.png',
+    descripcion: '🚧 Plan Integral de Asfalto 2025-2026. ¡Ya está en marcha! 💪🏻.'
+  
   }
 };
 
@@ -377,6 +384,10 @@ const eventosInstagram = {
   mayo: {
     imagen: './imagenes/matiasmayoi.PNG',
     descripcion: '👏🏻 Maipú Celebró el 25 de Mayo!. '
+  },
+  junio: {
+    imagen: './imagenes/matiasjuniof.PNG',
+    descripcion: '🚧 Plan Integral de Asfalto 2025-2026. ¡Ya está en marcha! 💪🏻.'
   }
   
 };

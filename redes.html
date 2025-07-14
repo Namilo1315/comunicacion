@@ -289,8 +289,8 @@
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipufebrero.pdf')">Febrero</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipumarzo.pdf')">Marzo</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipuabril.pdf')">Abril</button>
-        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('maipumayo.pdf')">Mayo</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('junio.pdf')">Junio</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipumayo.pdf')">Mayo</button>
+        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('maipujunio.pdf')">Junio</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('julio.pdf')">Julio</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('agosto.pdf')">Agosto</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('septiembre.pdf')">Septiembre</button>
@@ -327,7 +327,7 @@ function cargarPDF(ruta) {
 
 
   window.onload = function () {
-    cargarPDF('maipumayo.pdf');
+    cargarPDF('maipujunio.pdf');
   };
 
   const data = {
@@ -353,10 +353,14 @@ function cargarPDF(ruta) {
   instagram: { alcances: 41468, visualizaciones: 368334, seguidoresTotales: 45956, seguidoresMensuales: 741, visitas: 6826, mensajes: 505
   }
   },
+  junio: {
+  facebook: { alcances: 98696, visualizaciones: 404872, seguidoresTotales: 68932, seguidoresMensuales: 148, visitas: 9797, mensajes: 57 },
+  instagram: { alcances: 151793, visualizaciones: 499657, seguidoresTotales: 46827, seguidoresMensuales: 871, visitas: 5614, mensajes: 342 }
+},
+
 
 }; 
 
-  
 
   const eventosFacebook = {
   enero: {
@@ -378,6 +382,10 @@ function cargarPDF(ruta) {
   mayo: {
     imagen: './imagenes/fmayo.png', // ¡Confirmar que esté en minúsculas el nombre!
     descripcion: '📢 ¡Lanzamos las nuevas líneas de créditos 2025! Si vivís en Maipú y estás pensando en impulsar tu proyecto o emprendimiento'
+  },
+  junio: {
+    imagen: './imagenes/fjunio.png', // ¡Confirmar que esté en minúsculas el nombre!
+    descripcion: '❄️ ¡Vacaciones en Maipú!🗓️ Aprovechá esta última semana para disfrutar en familia y con amigos de todas las actividades que preparamos para vos.'
   }
 };
 
@@ -402,6 +410,10 @@ const eventosInstagram = {
     imagen: './imagenes/imayo.png', // Confirmar que también exista en minúsculas
     descripcion: '🌄 Viña, montaña y rincones con historia. Después de la nevada, Maipú nos regala postales únicas. '
   },
+  junio: {
+    imagen: './imagenes/ijunio.png', // ¡Confirmar que esté en minúsculas el nombre!
+    descripcion: '❄️ ¡Vacaciones en Maipú'
+  }
 };
 
 

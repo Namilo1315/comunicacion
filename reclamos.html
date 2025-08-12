@@ -107,33 +107,7 @@ html{
   </div>
 </nav>
 
-<section id="reclamos" class="py-3">
-  <div class="container">
-    <h1 class="text-center mb-4" style="color: #0277bd;">📢 Análisis de Reclamos</h1>
-    <p class="text-center text-muted">Visualizá los reclamos recibidos en redes sociales de las Cunetas de Matías Stevanato y Maipú Municipio, filtrados por mes, zona, área, cuentas, distritos y detalles de los mismos.</p>
 
-    <div class="text-center my-4">
-      <h4 class="text-primary mb-3">📄 Ver Informes Mensuales en PDF</h4>
-      <div class="d-flex flex-wrap justify-content-center">
-        <!-- Botones de los meses -->
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('enero.pdf')">Enero</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('febrero.pdf')">Febrero</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('marzo.pdf')">Marzo</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('abril.pdf')">Abril</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('mayo.pdf')">Mayo</button>
-        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('junio.pdf')">Junio</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('julio.pdf')">Julio</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('agosto.pdf')">Agosto</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('septiembre.pdf')">Septiembre</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('octubre.pdf')">Octubre</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('noviembre.pdf')">Noviembre</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('diciembre.pdf')">Diciembre</button>
-      </div>
-
-      <iframe id="visorPDF" frameborder="0"></iframe>
-    </div>
-  </div>
-</section>
 
 <section id="comparativo" class="py-3">
   <div class="container">
@@ -160,10 +134,37 @@ html{
           <tr>
             <td>Cantidad</td>
             <td>113</td><td>86</td><td>38</td><td>36</td><td>28</td><td>10</td>
-            <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+            <td>15</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</section>
+<section id="reclamos" class="py-3">
+  <div class="container">
+    <h1 class="text-center mb-4" style="color: #0277bd;">📢 Análisis de Reclamos</h1>
+    <p class="text-center text-muted">Visualizá los reclamos recibidos en redes sociales de las Cunetas de Matías Stevanato y Maipú Municipio, filtrados por mes, zona, área, cuentas, distritos y detalles de los mismos.</p>
+
+    <div class="text-center my-4">
+      <h4 class="text-primary mb-3">📄 Ver Informes Mensuales en PDF</h4>
+      <div class="d-flex flex-wrap justify-content-center">
+        <!-- Botones de los meses -->
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('enero.pdf')">Enero</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('febrero.pdf')">Febrero</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('marzo.pdf')">Marzo</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('abril.pdf')">Abril</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('mayo.pdf')">Mayo</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('junio.pdf')">Junio</button>
+        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('julio.pdf')">Julio</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('agosto.pdf')">Agosto</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('septiembre.pdf')">Septiembre</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('octubre.pdf')">Octubre</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('noviembre.pdf')">Noviembre</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('diciembre.pdf')">Diciembre</button>
+      </div>
+
+      <iframe id="visorPDF" frameborder="0"></iframe>
     </div>
   </div>
 </section>
@@ -176,7 +177,7 @@ html{
     </p>
     <div class="text-center mt-4">
       <a href="./nuevo.html" class="btn btn-outline-primary btn-lg fw-bold rounded-pill px-4 py-2 actual">
-        📊 Ver análisis de Enero - Junio
+        📊 Ver análisis de Enero - Julio
       </a>
     </div>
   </div>
@@ -189,7 +190,7 @@ html{
     document.getElementById('visorPDF').src = './pdf/' + ruta;
   }
   window.onload = function () {
-    cargarPDF('junio.pdf');
+    cargarPDF('julio.pdf');
   };
 
   const ctx = document.getElementById('lineChart').getContext('2d');
@@ -199,7 +200,7 @@ html{
       labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
       datasets: [{
         label: 'Cantidad de Reclamos',
-        data: [113, 86, 38, 36, 28, 10, 0, 0, 0, 0, 0, 0],
+        data: [113, 86, 38, 36, 28, 10, 15, 0, 0, 0, 0, 0],
         fill: true,
         backgroundColor: 'rgba(13, 110, 253, 0.1)',
         borderColor: '#0d6efd',

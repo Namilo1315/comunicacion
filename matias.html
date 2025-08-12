@@ -280,8 +280,8 @@
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('matiasmarzo.pdf')">Marzo</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('matiasabril.pdf')">Abril</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('matiasmayo.pdf')">Mayo</button>
-        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('matiasjunio.pdf')">Junio</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('julio.pdf')">Julio</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('matiasjunio.pdf')">Junio</button>
+        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('matiasjulio.pdf')">Julio</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('agosto.pdf')">Agosto</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('septiembre.pdf')">Septiembre</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('octubre.pdf')">Octubre</button>
@@ -305,7 +305,7 @@ function cargarPDF(ruta) {
 
 
   window.onload = function () {
-    cargarPDF('matiasjunio.pdf');
+    cargarPDF('matiasjulio.pdf');
   };
 
   const data = {
@@ -333,6 +333,11 @@ function cargarPDF(ruta) {
   facebook: { alcances: 95487, visualizaciones: 385546, seguidoresTotales:25935 , seguidoresMensuales: 98, visitas: 1829, mensajes: 17 },
   instagram: { alcances: 118943, visualizaciones: 225134, seguidoresTotales:12901, seguidoresMensuales: 252, visitas: 1476, mensajes: 144 }
 },
+julio: {
+  facebook: { alcances: 186521, visualizaciones: 1785223, seguidoresTotales:25935 , seguidoresMensuales: 71, visitas: 1990, mensajes: 15 },
+  instagram: { alcances: 230638, visualizaciones: 857270, seguidoresTotales:13100, seguidoresMensuales: 467, visitas: 3194, mensajes: 132 }
+},
+
 
   };
 
@@ -360,7 +365,10 @@ const eventosFacebook = {
   junio: {
     imagen: './imagenes/matiasjuniof.png',
     descripcion: '🚧 Plan Integral de Asfalto 2025-2026. ¡Ya está en marcha! 💪🏻.'
-  
+  },
+  julio: {
+    imagen: './imagenes/matiasjuliof.png',
+    descripcion: '✨Se pone en funcionamiento el nuevo Centro de Atención Primaria Veterinaria.'
   }
 };
 
@@ -386,8 +394,12 @@ const eventosInstagram = {
     descripcion: '👏🏻 Maipú Celebró el 25 de Mayo!. '
   },
   junio: {
-    imagen: './imagenes/matiasjuniof.PNG',
+    imagen: './imagenes/matiasjunioi.PNG',
     descripcion: '🚧 Plan Integral de Asfalto 2025-2026. ¡Ya está en marcha! 💪🏻.'
+  },
+  julio: {
+    imagen: './imagenes/matiasjulioi.PNG',
+    descripcion: '❄️ ¡Llegaron las vacaciones de invierno a Maipú! 🗓️.'
   }
   
 };

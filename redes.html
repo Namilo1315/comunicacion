@@ -290,8 +290,8 @@
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipumarzo.pdf')">Marzo</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipuabril.pdf')">Abril</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipumayo.pdf')">Mayo</button>
-        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('maipujunio.pdf')">Junio</button>
-        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('julio.pdf')">Julio</button>
+        <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('maipujunio.pdf')">Junio</button>
+        <button class="btn btn-outline-primary btn-mes actual" onclick="cargarPDF('maipujulio.pdf')">Julio</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('agosto.pdf')">Agosto</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('septiembre.pdf')">Septiembre</button>
         <button class="btn btn-outline-primary btn-mes" onclick="cargarPDF('octubre.pdf')">Octubre</button>
@@ -327,7 +327,7 @@ function cargarPDF(ruta) {
 
 
   window.onload = function () {
-    cargarPDF('maipujunio.pdf');
+    cargarPDF('maipujulio.pdf');
   };
 
   const data = {
@@ -356,6 +356,10 @@ function cargarPDF(ruta) {
   junio: {
   facebook: { alcances: 98696, visualizaciones: 404872, seguidoresTotales: 68932, seguidoresMensuales: 148, visitas: 9797, mensajes: 57 },
   instagram: { alcances: 151793, visualizaciones: 499657, seguidoresTotales: 46827, seguidoresMensuales: 871, visitas: 5614, mensajes: 342 }
+},
+julio: {
+  facebook: { alcances:335432 , visualizaciones: 1314098, seguidoresTotales: 68978, seguidoresMensuales: 312, visitas: 15251, mensajes: 42 },
+  instagram: { alcances: 240657, visualizaciones: 827457, seguidoresTotales: 47200, seguidoresMensuales: 1070, visitas: 7502, mensajes: 354 }
 },
 
 
@@ -386,6 +390,10 @@ function cargarPDF(ruta) {
   junio: {
     imagen: './imagenes/fjunio.png', // ¡Confirmar que esté en minúsculas el nombre!
     descripcion: '❄️ ¡Vacaciones en Maipú!🗓️ Aprovechá esta última semana para disfrutar en familia y con amigos de todas las actividades que preparamos para vos.'
+  },
+  julio: {
+    imagen: './imagenes/fjulio.png', // ¡Confirmar que esté en minúsculas el nombre!
+    descripcion: '🔹Nuevo Centro de Atención Primaria Veterinaria🔹'
   }
 };
 
@@ -413,6 +421,10 @@ const eventosInstagram = {
   junio: {
     imagen: './imagenes/ijunio.png', // ¡Confirmar que esté en minúsculas el nombre!
     descripcion: '❄️ ¡Vacaciones en Maipú'
+  },
+  julio: {
+    imagen: './imagenes/ijulio.png', // ¡Confirmar que esté en minúsculas el nombre!
+    descripcion: '❄️ ¡Llegan las vacaciones de invierno a Maipú! 🗓️'
   }
 };
 
